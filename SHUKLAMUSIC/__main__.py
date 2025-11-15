@@ -1,9 +1,7 @@
-import asyncio
-import importlib
 import threading
 from flask import Flask
+import os
 
-# ---------- FLASK SERVER FOR RENDER ----------
 app_flask = Flask(__name__)
 
 @app_flask.route("/")
@@ -11,10 +9,11 @@ def home():
     return "Bot Running!"
 
 def run_flask():
-    app_flask.run(host="0.0.0.0", port=10000)
+    port = int(os.environ.get("PORT", 10000))
+    app_flask.run(host="0.0.0.0", port=port)
 
-# Start Flask server in background
 threading.Thread(target=run_flask).start()
+
 # ------------------------------------------------
 
 
