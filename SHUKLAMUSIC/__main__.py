@@ -1,5 +1,22 @@
 import asyncio
 import importlib
+import threading
+from flask import Flask
+
+# ---------- FLASK SERVER FOR RENDER ----------
+app_flask = Flask(__name__)
+
+@app_flask.route("/")
+def home():
+    return "Bot Running!"
+
+def run_flask():
+    app_flask.run(host="0.0.0.0", port=10000)
+
+# Start Flask server in background
+threading.Thread(target=run_flask).start()
+# ------------------------------------------------
+
 
 from pyrogram import idle
 from pytgcalls.exceptions import NoActiveGroupCall
