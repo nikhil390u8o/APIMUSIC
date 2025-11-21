@@ -8,22 +8,22 @@ load_dotenv()
 
 # Required credentials
 API_ID = int(getenv("API_ID", "20898349"))
-API_HASH = getenv("API_HASH")
-BOT_TOKEN = getenv("BOT_TOKEN")
+API_HASH = getenv("API_HASH", "9fdb830d1e435b785f536247f49e7d87")
+BOT_TOKEN = getenv("BOT_TOKEN", "7850782505:AAEqo9EqgfkrsZ8fUx8W9A5ayL2EcJUwDxU")
 
 # Bot and owner info
-OWNER_USERNAME = getenv("OWNER_USERNAME", "SHIVANSHDEVS")
-BOT_USERNAME = getenv("BOT_USERNAME", "SapnaMusicRobot")
-BOT_NAME = getenv("BOT_NAME", "SAPNA")
+OWNER_USERNAME = getenv("OWNER_USERNAME", "ll_PANDA_BBY_ll")
+BOT_USERNAME = getenv("BOT_USERNAME", "RADHIKA_688U_MUSIC_BOT")
+BOT_NAME = getenv("BOT_NAME", "𝐑ᴀᴅʜɪᴋᴀ ✘ 𝐌ᴜsɪᴄ")
 ASSUSERNAME = getenv("ASSUSERNAME", "KHWAAISH_HOON")
 
 # MongoDB
-MONGO_DB_URI = getenv("MONGO_DB_URI", None)
+MONGO_DB_URI = getenv("MONGO_DB_URI", "mongodb+srv://gurjasharma3:B8osAJ8FeinFOjNV@cluster0pandababy.cwkui6e.mongodb.net/AviaxMusic?retryWrites=true&w=majority&tls=true")
 
 # Limits and IDs
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
-LOGGER_ID = int(getenv("LOGGER_ID", -1002018556839))
-OWNER_ID = int(getenv("OWNER_ID", 6762113050))
+LOGGER_ID = int(getenv("LOGGER_ID", -1002564592666))
+OWNER_ID = int(getenv("OWNER_ID", 7450385463))
 
 # Heroku
 HEROKU_APP_NAME = getenv("HEROKU_APP_NAME")
@@ -62,7 +62,7 @@ TG_AUDIO_FILESIZE_LIMIT = int(getenv("TG_AUDIO_FILESIZE_LIMIT", "5242880000"))
 TG_VIDEO_FILESIZE_LIMIT = int(getenv("TG_VIDEO_FILESIZE_LIMIT", "5242880000"))
 
 # Session strings
-STRING1 = getenv("STRING_SESSION", None)
+STRING1 = getenv("STRING_SESSION", "BQE-4i0ATEUTJrONIEvASz7hl-HPfSFLJkDK7DX2YsoLr1j_nkqqGxDGEsyeL-RlRmThTd2-E-F7475AkGhL1Fo6FTrwhKi0ySJ51ZKRpmsAj2vPYQ6b73jBTcGK21jpTC6O3o2CvA3tIRzVno_nhmV838DGkpvf06XjZtqZzabAC1cVETWLiCDoOG1zYsbqQWcqFzA-MNmXJdTQKvWEevaFdjWyZuaFlP0X9HW40qJCB1hxXZe5yjeEODiTMyQRCzpOs1ac1A-zQA56zRoYUFvGUVEq2LGsgXxQNbvQAGz5-rvgdBjDq-0_8s_dLqR7lnWDU-Rv71qjF2azR2dhsnpAtoVnHgAAAAHKarFXAA")
 STRING2 = getenv("STRING_SESSION2", None)
 STRING3 = getenv("STRING_SESSION3", None)
 STRING4 = getenv("STRING_SESSION4", None)
