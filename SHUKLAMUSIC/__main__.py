@@ -19,7 +19,7 @@ threading.Thread(target=run_flask).start()
 # ------------------------------------------------
 
 from pyrogram import idle
-from py_tgcalls.exceptions import AlreadyJoinedError, TelegramServerError
+from py-tgcalls.exceptions import AlreadyJoinedError, TelegramServerError
 
 import config
 from SHUKLAMUSIC import LOGGER, app, userbot
