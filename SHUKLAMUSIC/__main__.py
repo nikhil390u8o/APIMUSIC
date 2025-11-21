@@ -1,6 +1,8 @@
 import threading
 from flask import Flask
 import os
+import asyncio
+import importlib
 
 app_flask = Flask(__name__)
 
@@ -16,9 +18,8 @@ threading.Thread(target=run_flask).start()
 
 # ------------------------------------------------
 
-
 from pyrogram import idle
-from pytgcalls.exceptions import NoActiveGroupCall
+from py_tgcalls.exceptions import AlreadyJoinedError, TelegramServerError
 
 import config
 from SHUKLAMUSIC import LOGGER, app, userbot
@@ -37,7 +38,9 @@ async def init():
         and not config.STRING4
         and not config.STRING5
     ):
-        LOGGER(__name__).error("𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐍𝐨𝐭 𝐅𝐢𝐥𝐥𝐞𝐝, 𝐏𝐥𝐞𝐚𝐬𝐞 𝐅𝐢𝐥𝐥 𝐀 𝐏𝐲𝐫𝐨𝐠𝐫𝐚𝐦 𝐒𝐞𝐬𝐬𝐢𝐨𝐧")
+        LOGGER(__name__).error(
+            "𝐒𝐭𝐫𝐢𝐧𝐠 𝐒𝐞𝐬𝐬𝐢𝐨𝐧 𝐍𝐨𝐭 𝐅𝐢𝐥𝐥𝐞𝐝, 𝐏𝐥𝐞𝐚𝐬𝐞 𝐅𝐢𝐥𝐥 𝐀 𝐏𝐲𝐫𝐨𝐠𝐫𝐚𝐦 𝐒𝐞𝐬𝐬𝐢𝐨𝐧"
+        )
         exit()
     await sudo()
     try:
@@ -56,10 +59,11 @@ async def init():
     await userbot.start()
     await SHUKLA.start()
     try:
+        # Stream call without NoActiveGroupCall
         await SHUKLA.stream_call("https://te.legra.ph/file/29f784eb49d230ab62e9e.mp4")
-    except NoActiveGroupCall:
+    except (AlreadyJoinedError, TelegramServerError):
         LOGGER("SHUKLAMUSIC").error(
-            "𝗣𝗹𝗭 𝗦𝗧𝗔𝗥𝗧 𝗬𝗢𝗨𝗥 𝗟𝗢𝗚 𝗚𝗥𝗢𝗨𝗣 𝗩𝗢𝗜𝗖𝗘𝗖𝗛𝗔𝗧\𝗖𝗛𝗔𝗡𝗡𝗘𝗟\n\n𝗦𝗧𝗥𝗔𝗡𝗚𝗘𝗥 𝗕𝗢𝗧 𝗦𝗧𝗢𝗣........"
+            "𝗣𝗹𝗘𝗔𝗦𝗘 𝗦𝗧𝗔𝗥𝗧 𝗬𝗢𝗨𝗥 𝗟𝗢𝗚 𝗚𝗥𝗢𝗨𝗣 𝗩𝗢𝗜𝗖𝗘𝗖𝗛𝗔𝗧 / CHANNEL"
         )
         exit()
     except:
