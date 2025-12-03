@@ -18,8 +18,17 @@ BOT_NAME = getenv("BOT_NAME", "SAPNA")
 ASSUSERNAME = getenv("ASSUSERNAME", "KHWAAISH_HOON")
 
 # MongoDB
-MONGO_DB_URI = getenv("MONGO_DB_URI", None)
+import certifi
+from motor.motor_asyncio import AsyncIOMotorClient
 
+MONGO_DB_URI = "mongodb+srv://USERNAME:PASSWORD@ac-b6vaica.ago14t8.mongodb.net/?retryWrites=true&w=majority"
+
+client = AsyncIOMotorClient(
+    MONGO_DB_URI,
+    tls = True,
+    tlsCAFile = certifi.where()
+)
+db = client.get_default_database()
 # Limits and IDs
 DURATION_LIMIT_MIN = int(getenv("DURATION_LIMIT", 17000))
 LOGGER_ID = int(getenv("LOGGER_ID", -1002018556839))
